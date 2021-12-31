@@ -11,7 +11,5 @@ public interface BuildingRepository extends CrudRepository<BuildingDbo, Long> {
 
     List<BuildingDbo> findAll();
     BuildingDbo findBuildingById(Long id);
-    BuildingDbo save(BuildingDbo buildingDbo);
-    void deleteById(Long id);
-    void update(BuildingDbo buildingDbo);
+
 }

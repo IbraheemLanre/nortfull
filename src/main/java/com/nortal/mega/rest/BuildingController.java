@@ -1,5 +1,7 @@
 package com.nortal.mega.rest;
 
+import com.nortal.mega.persistence.entity.BuildingDbo;
+import com.nortal.mega.service.Building;
 import com.nortal.mega.service.BuildingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +31,13 @@ public class BuildingController {
 
     @PostMapping
     public ResponseEntity<BuildingDto> createBuilding(@RequestBody @Valid BuildingDto building) {
-        // TODO: Implement create building.
-        return ResponseEntity.ok().build();
+        // TODO: Implement update building.
+        return  ResponseEntity.ok(buildingService.save(building)).build();
     }
 
-    @PutMapping
-    public ResponseEntity<BuildingDto> updateBuilding(@RequestBody @Valid BuildingDto building) {
+    @PutMapping("{buildingId}")
+    public ResponseEntity<BuildingDto> updateBuilding(@RequestBody @Valid BuildingDto building, @PathVariable Long buildingId) {
         // TODO: Implement update building.
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(buildingDtoMapper.map(buildingService.update(building, buildingId))).build();
     }
 }
